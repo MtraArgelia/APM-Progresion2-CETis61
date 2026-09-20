@@ -92,7 +92,7 @@ html:not([data-auth="ok"]) body{visibility:hidden}
 <p>Selecciona una herramienta principal.</p><select><option>Pitágoras</option><option>Semejanza</option><option>Trigonometría</option><option>Combinación / otra estrategia justificada</option></select><textarea placeholder="Datos que mediré, variables, supuestos y procedimiento..."></textarea></div></section><section class="screen"><div class="card"><h2>Registra y calcula</h2><div class="grid"><div class="mini">Dato 1<input type="number"></div><div class="mini">Dato 2<input type="number"></div><div class="mini">Dato 3<input type="number"></div></div><p>Resultado:</p><input type="number" step=".01"><textarea placeholder="Interpreta el resultado con unidad y contexto..."></textarea></div></section><section class="screen"><div class="card"><h2>Valida</h2><p>¿Existe un segundo método viable?</p><select><option>Sí</option><option>No</option><option>Necesito más información</option></select><textarea placeholder="Compara evidencia, posibles fuentes de diferencia y limitaciones..."></textarea></div></section><section class="screen"><div class="card"><h2>Cierre de la ficha</h2>
     <p class="q"><b>Vuelve a la pregunta guía:</b> ¿Qué método elegirías para medir una estructura del plantel y cómo defenderías tu resultado?</p>
     <textarea placeholder="Escribe con tus palabras qué cambió en tu forma de pensar..."></textarea>
-    <div class="card"><b>Conexión:</b> Tu respuesta queda como evidencia abierta. En una versión conectada podrá guardarse junto con tus intentos y resultados.</div></div></section></main>
+    <div class="card"><b>Conexión:</b> Tu respuesta queda como evidencia abierta. Se registra como evidencia abierta al avanzar a la siguiente pantalla.</div></div></section></main>
     <nav><button onclick="prev()">← Anterior</button><span id="counter" style="padding:10px"></span><button onclick="next()">Siguiente →</button></nav>
     <script>
 let current=0; const screens=[...document.querySelectorAll('.screen')];
@@ -110,11 +110,12 @@ function restoreLocal(){try{let x=JSON.parse(localStorage.getItem(location.pathn
 function updateProgress(){let p=document.querySelector('.progress i');if(p)p.style.width=((current+1)/screens.length*100)+'%'}
 const oldshow=show; show=function(n){oldshow(n);updateProgress()}
 window.addEventListener('load',restoreLocal);
-</script><script src="data_layer.js"></script><script src="interactions_v3.js"></script><script src="flow_v4.js"></script><footer><span class="version-chip">Candidato v5</span> · Aplicaciones del Pensamiento Matemático · Progresión 2 · CETis 61<br><button onclick="resetFicha()" style="margin-top:8px">Reiniciar navegación de esta ficha</button></footer><script src="publication_v5.js"></script>\n<script src="auth_v11.js"></script>
+</script><footer><span class="version-chip">Plataforma v14</span> · Aplicaciones del Pensamiento Matemático · Progresión 2 · CETis 61<br><button onclick="resetFicha()" style="margin-top:8px">Reiniciar navegación de esta ficha</button></footer>\n<script src="auth_v11.js"></script>
 <script src="route_guard_v13.js"></script>
-<script src="integration_v8.js"></script>
-<script src="progress_report_v8.js"></script>
+
+
 <script src="assessment_v9.js"></script>
-<script src="interactions_v10.js"></script>
+
 <script src="registro_v12.js"></script>
+<script src="core_v14.js"></script>
 </body></html>

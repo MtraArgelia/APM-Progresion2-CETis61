@@ -88,7 +88,7 @@ html:not([data-auth="ok"]) body{visibility:hidden}
 <p>Si dos objetos verticales proyectan sombras bajo condiciones comparables, sus triángulos pueden ser semejantes.</p><p class="formula">altura / sombra = altura de referencia / sombra de referencia</p></div></section><section class="screen"><div class="card"><h2>Sombras</h2><p>Una vara de 1 m proyecta 0.75 m de sombra. Una estructura proyecta 12 m. Calcula su altura.</p><input id="n25" type="number"><button onclick="num('n25',16,.01,'f25','Compara lados correspondientes.')">Comprobar</button><div id="f25" class="feedback"></div></div></section><section class="screen"><div class="card"><h2>Condiciones del modelo</h2><p>La vara se mide a las 9:00 y la estructura a las 14:00. ¿Podemos asumir automáticamente semejanza?</p><div class="opts"><label><input type="radio" name="c25" value="no"> No necesariamente</label><label><input type="radio" name="c25" value="si"> Sí, siempre</label></div><button onclick="choice('c25','no','fc25','La dirección del Sol cambia con el tiempo.')">Comprobar</button><div id="fc25" class="feedback"></div></div></section><section class="screen"><div class="card"><h2>Cierre de la ficha</h2>
     <p class="q"><b>Vuelve a la pregunta guía:</b> ¿Cómo puede un objeto pequeño ayudarnos a medir uno mucho más grande?</p>
     <textarea placeholder="Escribe con tus palabras qué cambió en tu forma de pensar..."></textarea>
-    <div class="card"><b>Conexión:</b> Tu respuesta queda como evidencia abierta. En una versión conectada podrá guardarse junto con tus intentos y resultados.</div></div></section></main>
+    <div class="card"><b>Conexión:</b> Tu respuesta queda como evidencia abierta. Se registra como evidencia abierta al avanzar a la siguiente pantalla.</div></div></section></main>
     <nav><button onclick="prev()">← Anterior</button><span id="counter" style="padding:10px"></span><button onclick="next()">Siguiente →</button></nav>
     <script>
 let current=0; const screens=[...document.querySelectorAll('.screen')];
@@ -106,11 +106,12 @@ function restoreLocal(){try{let x=JSON.parse(localStorage.getItem(location.pathn
 function updateProgress(){let p=document.querySelector('.progress i');if(p)p.style.width=((current+1)/screens.length*100)+'%'}
 const oldshow=show; show=function(n){oldshow(n);updateProgress()}
 window.addEventListener('load',restoreLocal);
-</script><script src="data_layer.js"></script><script src="interactions_v3.js"></script><script src="flow_v4.js"></script><footer><span class="version-chip">Candidato v5</span> · Aplicaciones del Pensamiento Matemático · Progresión 2 · CETis 61<br><button onclick="resetFicha()" style="margin-top:8px">Reiniciar navegación de esta ficha</button></footer><script src="publication_v5.js"></script>\n<script src="auth_v11.js"></script>
+</script><footer><span class="version-chip">Plataforma v14</span> · Aplicaciones del Pensamiento Matemático · Progresión 2 · CETis 61<br><button onclick="resetFicha()" style="margin-top:8px">Reiniciar navegación de esta ficha</button></footer>\n<script src="auth_v11.js"></script>
 <script src="route_guard_v13.js"></script>
-<script src="integration_v8.js"></script>
-<script src="progress_report_v8.js"></script>
+
+
 <script src="assessment_v9.js"></script>
-<script src="interactions_v10.js"></script>
+
 <script src="registro_v12.js"></script>
+<script src="core_v14.js"></script>
 </body></html>

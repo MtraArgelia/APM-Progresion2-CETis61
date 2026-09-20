@@ -1,0 +1,22 @@
+APM CETis 61 · v14 corregida
+
+Correcciones principales:
+- Elimina referencias 404 a JavaScript heredado inexistente.
+- Incluye assets institucionales y visuales originales extraídos del cuaderno físico.
+- Mantiene login y route guard v13.
+- Identidad del estudiante proviene de la sesión; se elimina el formulario redundante en las fichas.
+- Añade “Volver al inicio”.
+- Registra respuestas numéricas y de opción al comprobar.
+- Registra respuestas abiertas al avanzar con “Siguiente”.
+- Guarda avance de ficha mediante Apps Script.
+- Actualiza el texto del índice: la plataforma ya requiere conexión para registrar evidencias.
+
+PRUEBA RECOMENDADA:
+1) Subir el contenido de esta carpeta a la raíz del repositorio, reemplazando archivos del mismo nombre.
+2) Abrir en incógnito y autenticar con la cuenta ficticia de prueba.
+3) Abrir Ficha 2.0, escribir “Mediante la técnica de sombras.” y pulsar Siguiente.
+4) Verificar una fila nueva en RESPUESTAS.
+5) Probar 350 en Estación A y pulsar Comprobar; verificar otra fila.
+6) Confirmar que la consola no muestra 404 para assets ni scripts.
+
+No usar aún con estudiantes reales hasta completar estas pruebas.

@@ -1,0 +1,9 @@
+{
+  "version": "v14",
+  "fichas": 11,
+  "missingLocalReferences": [],
+  "apiConfigured": true,
+  "routeGuardAll": true,
+  "coreAll": true,
+  "allStaticReferencesPresent": true
+}

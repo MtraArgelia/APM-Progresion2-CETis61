@@ -82,7 +82,7 @@ html:not([data-auth="ok"]) body{visibility:hidden}
     <div class="profe"><img src="assets/profe.png" alt="La profe Argelia"><div><b>LA PROFE ARGELIA TE RECUERDA:</b><br>Antes de buscar una fórmula, identifica qué observas, qué conoces y qué necesitas descubrir.</div></div></div></section><div class="card"><span class="badge">RECURSO VISUAL</span><img class="visual" src="assets/actividad_equipo.png" alt="Recurso visual de apoyo para esta ficha"></div><section class="screen"><div class="card"><h2>Reto inicial</h2><p>Imagina una estructura alta del plantel. Dibuja o describe una estrategia para conocer su altura sin subir a ella.</p><textarea placeholder="Mi propuesta..."></textarea></div></section><section class="screen"><div class="card"><h2>Estación A · Mido y convierto</h2><p>3.5 m equivalen a:</p><input id="n20" type="number" placeholder="cm"><button onclick="num('n20',350,0.01,'f20','Recuerda que 1 m = 100 cm.')">Comprobar</button><div id="f20" class="feedback"></div></div></section><section class="screen"><div class="card"><h2>Estación B · Triángulos</h2><p>Un triángulo rectángulo tiene catetos de 6 m y 8 m. ¿Cuánto mide la hipotenusa?</p><input id="n21" type="number"><button onclick="num('n21',10,.01,'f21','Identifica primero la hipotenusa.')">Comprobar</button><div id="f21" class="feedback"></div><p>Explica cómo lo pensaste.</p><textarea></textarea></div></section><section class="screen"><div class="card"><h2>Estación C · Elige la herramienta</h2><div class="opts"><label><input type="radio" name="c20" value="p"> Diagonal de un rectángulo → Pitágoras</label><label><input type="radio" name="c20" value="s"> Diagonal → semejanza</label></div><button onclick="choice('c20','p','fc20','Busca el triángulo rectángulo formado por los lados y la diagonal.')">Comprobar</button><div id="fc20" class="feedback"></div></div></section><section class="screen"><div class="card"><h2>Cierre de la ficha</h2>
     <p class="q"><b>Vuelve a la pregunta guía:</b> ¿Cómo determinarías la altura de una estructura sin medirla directamente?</p>
     <textarea placeholder="Escribe con tus palabras qué cambió en tu forma de pensar..."></textarea>
-    <div class="card"><b>Conexión:</b> Tu respuesta queda como evidencia abierta. En una versión conectada podrá guardarse junto con tus intentos y resultados.</div></div></section></main>
+    <div class="card"><b>Conexión:</b> Tu respuesta queda como evidencia abierta. Se registra como evidencia abierta al avanzar a la siguiente pantalla.</div></div></section></main>
     <nav><button onclick="prev()">← Anterior</button><span id="counter" style="padding:10px"></span><button onclick="next()">Siguiente →</button></nav>
     <script>
 let current=0; const screens=[...document.querySelectorAll('.screen')];
@@ -100,11 +100,12 @@ function restoreLocal(){try{let x=JSON.parse(localStorage.getItem(location.pathn
 function updateProgress(){let p=document.querySelector('.progress i');if(p)p.style.width=((current+1)/screens.length*100)+'%'}
 const oldshow=show; show=function(n){oldshow(n);updateProgress()}
 window.addEventListener('load',restoreLocal);
-</script><script src="data_layer.js"></script><script src="interactions_v3.js"></script><script src="flow_v4.js"></script><footer><span class="version-chip">Candidato v5</span> · Aplicaciones del Pensamiento Matemático · Progresión 2 · CETis 61<br><button onclick="resetFicha()" style="margin-top:8px">Reiniciar navegación de esta ficha</button></footer><script src="publication_v5.js"></script>\n<script src="auth_v11.js"></script>
+</script><footer><span class="version-chip">Plataforma v14</span> · Aplicaciones del Pensamiento Matemático · Progresión 2 · CETis 61<br><button onclick="resetFicha()" style="margin-top:8px">Reiniciar navegación de esta ficha</button></footer>\n<script src="auth_v11.js"></script>
 <script src="route_guard_v13.js"></script>
-<script src="integration_v8.js"></script>
-<script src="progress_report_v8.js"></script>
+
+
 <script src="assessment_v9.js"></script>
-<script src="interactions_v10.js"></script>
+
 <script src="registro_v12.js"></script>
+<script src="core_v14.js"></script>
 </body></html>

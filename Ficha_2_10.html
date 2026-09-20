@@ -89,7 +89,7 @@ html:not([data-auth="ok"]) body{visibility:hidden}
 <div class="grid"><div class="mini"><b>Matemática</b><br>¿Operaciones correctas?</div><div class="mini"><b>Geométrica</b><br>¿Cumple propiedades?</div><div class="mini"><b>Contextual</b><br>¿Tiene sentido?</div><div class="mini"><b>Experimental</b><br>¿Puede contrastarse?</div></div></div></section><section class="screen"><div class="card"><h2>Transferencia</h2><p>Pantalla rectangular 4.8 m × 2.7 m. Calcula su diagonal.</p><input id="n210" type="number" step=".01"><button onclick="num('n210',5.50,.03,'f210','Representa el rectángulo como dos triángulos rectángulos.')">Comprobar</button><div id="f210" class="feedback"></div><textarea placeholder="¿Cómo sabes que el resultado tiene sentido?"></textarea></div></section><section class="screen"><div class="card"><h2>Conclusión con evidencia</h2><p>Completa:</p><textarea placeholder="Con las mediciones y el modelo utilizados, estimamos que... La evidencia que respalda esta conclusión es..."></textarea></div></section><section class="screen"><div class="card"><h2>Cierre de la ficha</h2>
     <p class="q"><b>Vuelve a la pregunta guía:</b> ¿Qué evidencias necesito para confiar en una respuesta matemática?</p>
     <textarea placeholder="Escribe con tus palabras qué cambió en tu forma de pensar..."></textarea>
-    <div class="card"><b>Conexión:</b> Tu respuesta queda como evidencia abierta. En una versión conectada podrá guardarse junto con tus intentos y resultados.</div></div></section></main>
+    <div class="card"><b>Conexión:</b> Tu respuesta queda como evidencia abierta. Se registra como evidencia abierta al avanzar a la siguiente pantalla.</div></div></section></main>
     <nav><button onclick="prev()">← Anterior</button><span id="counter" style="padding:10px"></span><button onclick="next()">Siguiente →</button></nav>
     <script>
 let current=0; const screens=[...document.querySelectorAll('.screen')];
@@ -107,11 +107,12 @@ function restoreLocal(){try{let x=JSON.parse(localStorage.getItem(location.pathn
 function updateProgress(){let p=document.querySelector('.progress i');if(p)p.style.width=((current+1)/screens.length*100)+'%'}
 const oldshow=show; show=function(n){oldshow(n);updateProgress()}
 window.addEventListener('load',restoreLocal);
-</script><script src="data_layer.js"></script><script src="interactions_v3.js"></script><script src="flow_v4.js"></script><footer><span class="version-chip">Candidato v5</span> · Aplicaciones del Pensamiento Matemático · Progresión 2 · CETis 61<br><button onclick="resetFicha()" style="margin-top:8px">Reiniciar navegación de esta ficha</button></footer><script src="publication_v5.js"></script>\n<script src="auth_v11.js"></script>
+</script><footer><span class="version-chip">Plataforma v14</span> · Aplicaciones del Pensamiento Matemático · Progresión 2 · CETis 61<br><button onclick="resetFicha()" style="margin-top:8px">Reiniciar navegación de esta ficha</button></footer>\n<script src="auth_v11.js"></script>
 <script src="route_guard_v13.js"></script>
-<script src="integration_v8.js"></script>
-<script src="progress_report_v8.js"></script>
+
+
 <script src="assessment_v9.js"></script>
-<script src="interactions_v10.js"></script>
+
 <script src="registro_v12.js"></script>
+<script src="core_v14.js"></script>
 </body></html>

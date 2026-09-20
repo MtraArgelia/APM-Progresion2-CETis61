@@ -88,7 +88,7 @@ html:not([data-auth="ok"]) body{visibility:hidden}
 <p class="formula">a² + b² = c²</p><p>Antes de sustituir: localiza el ángulo recto y después la hipotenusa.</p></div></section><section class="screen"><div class="card"><h2>Escalera</h2><p>Una escalera forma un triángulo con 3 m de base y 4 m de altura. ¿Cuánto mide?</p><input id="n24" type="number"><button onclick="num('n24',5,.001,'f24','La escalera es la hipotenusa.')">Comprobar</button><div id="f24" class="feedback"></div></div></section><section class="screen"><div class="card"><h2>Cateto desconocido</h2><p>Hipotenusa 13 m y un cateto 5 m. Calcula el otro cateto.</p><input id="n242" type="number"><button onclick="num('n242',12,.001,'f242','Despeja: b² = c² − a².')">Comprobar</button><div id="f242" class="feedback"></div></div></section><section class="screen"><div class="card"><h2>Comprueba antes de aceptar</h2><p>En un rectángulo de 4 m × 7 m alguien reporta una diagonal de 2.6 m.</p><div class="opts"><label><input type="radio" name="c24" value="bad"> Debe revisarse</label><label><input type="radio" name="c24" value="ok"> Es razonable</label></div><button onclick="choice('c24','bad','fc24','La hipotenusa debe ser mayor que cada cateto.')">Comprobar</button><div id="fc24" class="feedback"></div></div></section><section class="screen"><div class="card"><h2>Cierre de la ficha</h2>
     <p class="q"><b>Vuelve a la pregunta guía:</b> ¿Cómo puede un triángulo ayudarnos a calcular una distancia inaccesible?</p>
     <textarea placeholder="Escribe con tus palabras qué cambió en tu forma de pensar..."></textarea>
-    <div class="card"><b>Conexión:</b> Tu respuesta queda como evidencia abierta. En una versión conectada podrá guardarse junto con tus intentos y resultados.</div></div></section></main>
+    <div class="card"><b>Conexión:</b> Tu respuesta queda como evidencia abierta. Se registra como evidencia abierta al avanzar a la siguiente pantalla.</div></div></section></main>
     <nav><button onclick="prev()">← Anterior</button><span id="counter" style="padding:10px"></span><button onclick="next()">Siguiente →</button></nav>
     <script>
 let current=0; const screens=[...document.querySelectorAll('.screen')];
@@ -106,11 +106,12 @@ function restoreLocal(){try{let x=JSON.parse(localStorage.getItem(location.pathn
 function updateProgress(){let p=document.querySelector('.progress i');if(p)p.style.width=((current+1)/screens.length*100)+'%'}
 const oldshow=show; show=function(n){oldshow(n);updateProgress()}
 window.addEventListener('load',restoreLocal);
-</script><script src="data_layer.js"></script><script src="interactions_v3.js"></script><script src="flow_v4.js"></script><footer><span class="version-chip">Candidato v5</span> · Aplicaciones del Pensamiento Matemático · Progresión 2 · CETis 61<br><button onclick="resetFicha()" style="margin-top:8px">Reiniciar navegación de esta ficha</button></footer><script src="publication_v5.js"></script>\n<script src="auth_v11.js"></script>
+</script><footer><span class="version-chip">Plataforma v14</span> · Aplicaciones del Pensamiento Matemático · Progresión 2 · CETis 61<br><button onclick="resetFicha()" style="margin-top:8px">Reiniciar navegación de esta ficha</button></footer>\n<script src="auth_v11.js"></script>
 <script src="route_guard_v13.js"></script>
-<script src="integration_v8.js"></script>
-<script src="progress_report_v8.js"></script>
+
+
 <script src="assessment_v9.js"></script>
-<script src="interactions_v10.js"></script>
+
 <script src="registro_v12.js"></script>
+<script src="core_v14.js"></script>
 </body></html>
