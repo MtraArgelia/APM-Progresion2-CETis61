@@ -106,16 +106,16 @@ header{position:relative!important;top:auto!important}
 
 <details class="activity-v142" id="act20-cierre"><summary><span>5 · Cierre de la ficha</span><span class="activity-state-v142">○ Pendiente</span></summary><div class="activity-body-v142"><p class="q activity-question"><b>Vuelve a la pregunta guía:</b> ¿Cómo determinarías la altura de una estructura sin medirla directamente?</p><textarea id="abierta_6_1" data-dimension="C" placeholder="Escribe con tus palabras qué cambió en tu forma de pensar..."></textarea><div class="helpbox"><b>Conexión:</b> Esta respuesta queda como evidencia abierta y se conserva para que puedas continuar después.</div><div id="pendingSummaryV1421" class="pending-summary-v1421" hidden></div><button class="continue-v142 final-v1421" type="button">Revisar y guardar cierre ✓</button></div></details>
 </main>
-<footer><span class="version-chip">Prototipo v14.2.1 · Ficha continua</span> · Aplicaciones del Pensamiento Matemático · Progresión 2 · CETis 61</footer>
+<footer><span class="version-chip">Prototipo v14.2.2 · Avance corregido</span> · Aplicaciones del Pensamiento Matemático · Progresión 2 · CETis 61</footer>
 <script>
 function fb(id,ok,msg){let e=document.getElementById(id);e.className='feedback '+(ok?'ok':'bad');e.textContent=msg}
-function num(id,ans,tol,fid,hint){let v=parseFloat(document.getElementById(id).value);fb(fid,Math.abs(v-ans)<=tol,Math.abs(v-ans)<=tol?'✓ Correcto. Interpreta ahora qué representa el resultado.':'Revisa los datos, las unidades y la relación matemática. '+hint)}
-function choice(name,ans,fid,hint){let e=document.querySelector('input[name="'+name+'"]:checked');let ok=e&&e.value===ans;fb(fid,ok,ok?'✓ Bien razonado.':'Revisa la situación. '+hint)}
+function num(id,ans,tol,fid,hint){let v=parseFloat(document.getElementById(id).value);let ok=Number.isFinite(v)&&Math.abs(v-ans)<=tol;fb(fid,ok,ok?'✓ Correcto. Interpreta ahora qué representa el resultado.':'Revisa los datos, las unidades y la relación matemática. '+hint);window.P2CoreV1422?.markChecked?.(document.getElementById(id),ok)}
+function choice(name,ans,fid,hint){let e=document.querySelector('input[name="'+name+'"]:checked');let ok=!!(e&&e.value===ans);fb(fid,ok,ok?'✓ Bien razonado.':'Revisa la situación. '+hint);window.P2CoreV1422?.markChecked?.(e||document.querySelector('input[name="'+name+'"]'),ok)}
 </script>
 <script src="auth_v11.js"></script>
 <script src="route_guard_v13.js"></script>
 <script src="assessment_v9.js"></script>
 <script src="registro_v12.js"></script>
 <script src="core_v14_1.js"></script>
-<script src="core_v14_2_1.js"></script>
+<script src="core_v14_2_2.js"></script>
 </body></html>
