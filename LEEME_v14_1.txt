@@ -1,0 +1,25 @@
+APM CETis 61 · v14.1 · PERSISTENCIA DE RESPUESTAS
+
+CAMBIO PRINCIPAL
+- Las respuestas se restauran al volver, recargar o reabrir una ficha.
+- Se usa caché local por estudiante/ficha para respuesta inmediata.
+- Al iniciar sesión, la plataforma consulta myData y recupera desde Google Sheets las respuestas del estudiante autenticado.
+- Si una respuesta no cambió, no crea un registro duplicado.
+- Si cambia, se guarda como un nuevo intento.
+- Anterior y Siguiente guardan respuestas abiertas antes de cambiar de pantalla.
+
+BACKEND
+No requiere modificar ni volver a desplegar Apps Script: Code_v11.gs ya incluye la acción segura myData, filtrada por la sesión autenticada.
+
+CLASIFICACIÓN DE REVISIÓN
+Se incluye CATALOGO_REVISION_v14_1.json con la arquitectura A Automática / B Prevalorada / C Docente + Patrones de grupo. El panel operativo de revisión se construirá en v15.
+
+PRUEBA RECOMENDADA
+1) Iniciar sesión con la cuenta ficticia de prueba.
+2) Ficha 2.0 > Reto inicial: escribir respuesta y pulsar Siguiente.
+3) Pulsar Anterior: la respuesta debe seguir visible.
+4) Recargar (F5): debe restaurarse.
+5) Volver al inicio y reabrir Ficha 2.0: debe restaurarse.
+6) Cerrar sesión/iniciar de nuevo: debe recuperarse desde Google Sheets.
+7) Sin modificar la respuesta, navegar de nuevo: no debe aparecer una fila duplicada.
+8) Modificar la respuesta y avanzar: debe aparecer un nuevo registro con Intento incrementado.

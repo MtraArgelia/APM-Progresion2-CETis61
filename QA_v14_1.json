@@ -1,0 +1,14 @@
+{
+  "version":"14.1",
+  "objetivo":"Persistencia y recuperación de respuestas",
+  "backend_change_required":false,
+  "features":[
+    "cache_local_por_estudiante_y_ficha",
+    "hidratacion_desde_myData",
+    "restauracion_textarea_input_select_radio",
+    "deduplicacion_respuesta_sin_cambios",
+    "incremento_de_intento_al_modificar",
+    "guardado_en_anterior_y_siguiente"
+  ],
+  "manual_test_required":true
+}

@@ -1,0 +1,10 @@
+{
+  "version": "14.1",
+  "criterio": {
+    "A_AUTOMATICA": "Reactivos con respuesta objetivamente verificable por la plataforma.",
+    "B_PREVALORADA": "Respuesta abierta breve: la plataforma podrá organizar evidencias y excepciones; la valoración automática no sustituye al docente.",
+    "C_DOCENTE": "Argumentación, modelación o evidencia compleja que requiere decisión docente.",
+    "PATRONES_GRUPO": "Capa de análisis transversal; no es una calificación ni una cuarta modalidad de validación."
+  },
+  "nota": "La v14.1 incorpora la estructura de clasificación. La interfaz de cola de revisión y patrones de grupo se implementará en el Panel Docente v15."
+}
