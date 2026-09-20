@@ -1,0 +1,152 @@
+[
+  {
+    "ficha": "2.0",
+    "id": "D20_A1",
+    "dimension": "R",
+    "type": "SC",
+    "weight": 1,
+    "gradable": true,
+    "level": "Explorador",
+    "evidence": "Distingue una estimación razonable."
+  },
+  {
+    "ficha": "2.1",
+    "id": "D21_E1",
+    "dimension": "P",
+    "type": "TOL",
+    "weight": 1,
+    "gradable": true,
+    "level": "Constructor",
+    "evidence": "Compara estimación y medición."
+  },
+  {
+    "ficha": "2.2",
+    "id": "D22_R1",
+    "dimension": "M",
+    "type": "MS",
+    "weight": 2,
+    "gradable": true,
+    "level": "Analista",
+    "evidence": "Selecciona datos pertinentes para un modelo."
+  },
+  {
+    "ficha": "2.3",
+    "id": "D23_T1",
+    "dimension": "R",
+    "type": "HOT",
+    "weight": 1,
+    "gradable": true,
+    "level": "Constructor",
+    "evidence": "Reconoce la estructura de un triángulo rectángulo."
+  },
+  {
+    "ficha": "2.4",
+    "id": "D24_P1",
+    "dimension": "P",
+    "type": "NUM",
+    "weight": 2,
+    "gradable": true,
+    "level": "Constructor",
+    "evidence": "Aplica Pitágoras cuando corresponde."
+  },
+  {
+    "ficha": "2.5",
+    "id": "D25_S1",
+    "dimension": "R",
+    "type": "MATCH",
+    "weight": 2,
+    "gradable": true,
+    "level": "Analista",
+    "evidence": "Establece correspondencia y proporcionalidad."
+  },
+  {
+    "ficha": "2.6",
+    "id": "D26_T1",
+    "dimension": "P",
+    "type": "SC",
+    "weight": 2,
+    "gradable": true,
+    "level": "Analista",
+    "evidence": "Selecciona una razón trigonométrica pertinente."
+  },
+  {
+    "ficha": "2.6",
+    "id": "D26_C1",
+    "dimension": "R",
+    "type": "OPEN",
+    "weight": 2,
+    "gradable": false,
+    "level": "Analista",
+    "evidence": "Justifica la selección de datos y relación."
+  },
+  {
+    "ficha": "2.7",
+    "id": "D27_M1",
+    "dimension": "M",
+    "type": "ORDER",
+    "weight": 3,
+    "gradable": true,
+    "level": "Modelador",
+    "evidence": "Organiza el ciclo de modelación."
+  },
+  {
+    "ficha": "2.7",
+    "id": "D27_C1",
+    "dimension": "C",
+    "type": "OPEN",
+    "weight": 2,
+    "gradable": false,
+    "level": "Modelador",
+    "evidence": "Comunica supuestos y validación."
+  },
+  {
+    "ficha": "2.8",
+    "id": "D28_M1",
+    "dimension": "M",
+    "type": "NUM",
+    "weight": 3,
+    "gradable": true,
+    "level": "Modelador",
+    "evidence": "Relaciona arco, ángulo y circunferencia."
+  },
+  {
+    "ficha": "2.9",
+    "id": "D29_M1",
+    "dimension": "M",
+    "type": "MODEL",
+    "weight": 4,
+    "gradable": false,
+    "level": "Modelador",
+    "evidence": "Diseña y valida una medición indirecta propia."
+  },
+  {
+    "ficha": "2.9",
+    "id": "D29_C1",
+    "dimension": "C",
+    "type": "OPEN",
+    "weight": 2,
+    "gradable": false,
+    "level": "Modelador",
+    "evidence": "Comunica resultado, evidencia y limitaciones."
+  },
+  {
+    "ficha": "2.10",
+    "id": "D210_R1",
+    "dimension": "R",
+    "type": "SC",
+    "weight": 2,
+    "gradable": true,
+    "level": "Analista",
+    "evidence": "Valida afirmaciones y resultados."
+  },
+  {
+    "ficha": "2.10",
+    "id": "D210_C1",
+    "dimension": "C",
+    "type": "OPEN",
+    "weight": 2,
+    "gradable": false,
+    "level": "Modelador",
+    "evidence": "Construye una conclusión matemática contextualizada."
+  }
+]

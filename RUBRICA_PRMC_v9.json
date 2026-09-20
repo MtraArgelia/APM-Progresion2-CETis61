@@ -1,0 +1,27 @@
+{
+  "scale": [
+    {
+      "score": 1,
+      "label": "Requiere apoyo"
+    },
+    {
+      "score": 2,
+      "label": "En desarrollo"
+    },
+    {
+      "score": 3,
+      "label": "Logrado"
+    },
+    {
+      "score": 4,
+      "label": "Dominio avanzado"
+    }
+  ],
+  "dimensions": {
+    "P": "Procedimiento",
+    "R": "Razonamiento",
+    "M": "Modelación",
+    "C": "Comunicación"
+  },
+  "note": "La rúbrica se aplica a evidencias abiertas pertinentes y no reemplaza la valoración docente."
+}

@@ -1,0 +1,43 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Panel docente · Progresión 2</title>
+<style>
+body{font-family:system-ui,Segoe UI,Arial;background:#edf2f6;color:#183044;margin:0}.brand{background:#123a63;color:white;padding:18px 5vw}.wrap{max-width:1100px;margin:auto;padding:22px}.card{background:white;border-radius:18px;padding:20px;margin:15px 0;box-shadow:0 7px 22px #0001}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px}.kpi{background:#f4f8fb;padding:15px;border-radius:13px}.kpi b{font-size:1.6rem;color:#981f37}
+table{width:100%;border-collapse:collapse;font-size:.88rem}th,td{padding:9px;border-bottom:1px solid #dfe7ed;text-align:left}th{background:#123a63;color:white}
+button{background:#123a63;color:white;border:0;border-radius:10px;padding:10px 14px;font-weight:700;cursor:pointer}input{padding:9px}
+</style></head><body><div class="brand"><b>Panel docente · Aplicaciones del Pensamiento Matemático</b><br><small>Progresión 2 · CETis 61</small></div>
+<main class="wrap">
+<div class="card"><h1>Seguimiento P · R · M · C</h1><p>Importa el archivo JSON exportado desde uno o varios dispositivos. Este panel resume evidencias; no convierte automáticamente las respuestas abiertas en calificaciones.</p>
+<input id="file" type="file" accept=".json" multiple><button onclick="loadFiles()">Analizar evidencias</button></div>
+<div class="grid">
+<div class="kpi">Eventos registrados<br><b id="kEvents">0</b></div>
+<div class="kpi">Intentos objetivos<br><b id="kAttempts">0</b></div>
+<div class="kpi">Aciertos objetivos<br><b id="kCorrect">0</b></div>
+<div class="kpi">Respuestas abiertas<br><b id="kOpen">0</b></div>
+</div>
+<div class="card"><h2>Evidencia por dimensión</h2><div class="grid">
+<div class="kpi">P · Procedimiento<br><b id="dP">0</b></div><div class="kpi">R · Razonamiento<br><b id="dR">0</b></div>
+<div class="kpi">M · Modelación<br><b id="dM">0</b></div><div class="kpi">C · Comunicación<br><b id="dC">0</b></div>
+</div></div>
+<div class="card"><h2>Detalle</h2><div style="overflow:auto"><table><thead><tr><th>Estudiante</th><th>Grupo</th><th>Ficha</th><th>Tipo</th><th>Ítem</th><th>Dimensión</th><th>Correcto</th><th>Respuesta</th></tr></thead><tbody id="rows"></tbody></table></div></div>
+</main>
+<script>
+let events=[];
+async function loadFiles(){
+ events=[]; const files=[...document.getElementById('file').files];
+ for(const f of files){try{let x=JSON.parse(await f.text());events.push(...(Array.isArray(x)?x:[x]))}catch(e){}}
+ render();
+}
+function render(){
+ document.getElementById('kEvents').textContent=events.length;
+ let attempts=events.filter(e=>e.type==='objective_attempt'||e.correct!==undefined);
+ let correct=attempts.filter(e=>e.correct===true);
+ let open=events.filter(e=>e.type==='open_response');
+ document.getElementById('kAttempts').textContent=attempts.length;
+ document.getElementById('kCorrect').textContent=correct.length;
+ document.getElementById('kOpen').textContent=open.length;
+ ['P','R','M','C'].forEach(d=>document.getElementById('d'+d).textContent=events.filter(e=>(e.dimension||'').includes(d)).length);
+ document.getElementById('rows').innerHTML=events.slice().reverse().map(e=>`<tr><td>${esc(e.student?.name||'')}</td><td>${esc(e.student?.group||'')}</td><td>${esc(e.ficha||'')}</td><td>${esc(e.type||'')}</td><td>${esc(e.item||e.screen||'')}</td><td>${esc(e.dimension||'')}</td><td>${e.correct===true?'✓':e.correct===false?'✗':''}</td><td>${esc(String(e.value??''))}</td></tr>`).join('');
+}
+function esc(s){return s.replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}
+</script></body></html>

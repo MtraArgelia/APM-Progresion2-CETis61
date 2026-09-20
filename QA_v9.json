@@ -1,0 +1,84 @@
+{
+  "version": "v9",
+  "fichas": 11,
+  "all_pass": true,
+  "checks": {
+    "Ficha_2_0.html": {
+      "auth": true,
+      "integration": true,
+      "assessment": true,
+      "route": true,
+      "responsive": true
+    },
+    "Ficha_2_1.html": {
+      "auth": true,
+      "integration": true,
+      "assessment": true,
+      "route": true,
+      "responsive": true
+    },
+    "Ficha_2_2.html": {
+      "auth": true,
+      "integration": true,
+      "assessment": true,
+      "route": true,
+      "responsive": true
+    },
+    "Ficha_2_3.html": {
+      "auth": true,
+      "integration": true,
+      "assessment": true,
+      "route": true,
+      "responsive": true
+    },
+    "Ficha_2_4.html": {
+      "auth": true,
+      "integration": true,
+      "assessment": true,
+      "route": true,
+      "responsive": true
+    },
+    "Ficha_2_5.html": {
+      "auth": true,
+      "integration": true,
+      "assessment": true,
+      "route": true,
+      "responsive": true
+    },
+    "Ficha_2_6.html": {
+      "auth": true,
+      "integration": true,
+      "assessment": true,
+      "route": true,
+      "responsive": true
+    },
+    "Ficha_2_7.html": {
+      "auth": true,
+      "integration": true,
+      "assessment": true,
+      "route": true,
+      "responsive": true
+    },
+    "Ficha_2_8.html": {
+      "auth": true,
+      "integration": true,
+      "assessment": true,
+      "route": true,
+      "responsive": true
+    },
+    "Ficha_2_9.html": {
+      "auth": true,
+      "integration": true,
+      "assessment": true,
+      "route": true,
+      "responsive": true
+    },
+    "Ficha_2_10.html": {
+      "auth": true,
+      "integration": true,
+      "assessment": true,
+      "route": true,
+      "responsive": true
+    }
+  }
+}

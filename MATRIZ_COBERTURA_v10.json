@@ -1,0 +1,112 @@
+[
+  {
+    "ficha": "2.0",
+    "reactivosCatalogados": 4,
+    "automaticos": 3,
+    "valoracionDocente": 1,
+    "P": 1,
+    "R": 2,
+    "M": 0,
+    "C": 1
+  },
+  {
+    "ficha": "2.1",
+    "reactivosCatalogados": 4,
+    "automaticos": 2,
+    "valoracionDocente": 2,
+    "P": 1,
+    "R": 2,
+    "M": 0,
+    "C": 1
+  },
+  {
+    "ficha": "2.2",
+    "reactivosCatalogados": 3,
+    "automaticos": 2,
+    "valoracionDocente": 1,
+    "P": 0,
+    "R": 1,
+    "M": 2,
+    "C": 0
+  },
+  {
+    "ficha": "2.3",
+    "reactivosCatalogados": 4,
+    "automaticos": 3,
+    "valoracionDocente": 1,
+    "P": 1,
+    "R": 3,
+    "M": 0,
+    "C": 0
+  },
+  {
+    "ficha": "2.4",
+    "reactivosCatalogados": 4,
+    "automaticos": 3,
+    "valoracionDocente": 1,
+    "P": 2,
+    "R": 1,
+    "M": 0,
+    "C": 1
+  },
+  {
+    "ficha": "2.5",
+    "reactivosCatalogados": 4,
+    "automaticos": 3,
+    "valoracionDocente": 1,
+    "P": 1,
+    "R": 2,
+    "M": 1,
+    "C": 0
+  },
+  {
+    "ficha": "2.6",
+    "reactivosCatalogados": 5,
+    "automaticos": 4,
+    "valoracionDocente": 1,
+    "P": 2,
+    "R": 1,
+    "M": 1,
+    "C": 1
+  },
+  {
+    "ficha": "2.7",
+    "reactivosCatalogados": 4,
+    "automaticos": 2,
+    "valoracionDocente": 2,
+    "P": 0,
+    "R": 1,
+    "M": 2,
+    "C": 1
+  },
+  {
+    "ficha": "2.8",
+    "reactivosCatalogados": 4,
+    "automaticos": 3,
+    "valoracionDocente": 1,
+    "P": 1,
+    "R": 1,
+    "M": 2,
+    "C": 0
+  },
+  {
+    "ficha": "2.9",
+    "reactivosCatalogados": 5,
+    "automaticos": 1,
+    "valoracionDocente": 4,
+    "P": 1,
+    "R": 1,
+    "M": 2,
+    "C": 1
+  },
+  {
+    "ficha": "2.10",
+    "reactivosCatalogados": 4,
+    "automaticos": 3,
+    "valoracionDocente": 1,
+    "P": 1,
+    "R": 1,
+    "M": 0,
+    "C": 2
+  }
+]

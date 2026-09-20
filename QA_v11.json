@@ -1,0 +1,10 @@
+{
+  "version": "v11",
+  "fichas": 11,
+  "authV11All": true,
+  "backendFiles": true,
+  "teacherPanel": true,
+  "catalog": true,
+  "note": "Comprobación estructural. No se ha desplegado ni probado contra una Google Sheet real.",
+  "allStructuralChecksPass": true
+}

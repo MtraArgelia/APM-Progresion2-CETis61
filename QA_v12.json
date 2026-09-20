@@ -1,0 +1,10 @@
+{
+  "version": "v12",
+  "fichas": 11,
+  "studentGuardAll": true,
+  "serverGate": true,
+  "teacherControl": true,
+  "sheetIdConfigured": true,
+  "note": "QA estructural; falta prueba real tras desplegar Apps Script.",
+  "allStructuralChecksPass": true
+}

@@ -1,0 +1,17 @@
+APM Progresión 2 CETis 61 — v13 Acceso protegido
+
+CAMBIO PRINCIPAL
+- index.html y las 11 fichas requieren sesión válida.
+- Sin sesión, redirigen a login.html.
+- La sesión se comprueba localmente y además con Apps Script (acción me).
+- Después del login puede volver a la página solicitada.
+- ABRIR_PLATAFORMA.html conduce siempre al login.
+- El control ABIERTO/CERRADO sigue siendo independiente: cerrar registro bloquea guardado, no consulta.
+
+PRUEBA RECOMENDADA
+1) Publicar/servir estos archivos por HTTP(S), idealmente GitHub Pages.
+2) Abrir ABRIR_PLATAFORMA.html o login.html.
+3) Entrar con el usuario ficticio.
+4) Abrir index/ficha directamente en incógnito: debe redirigir al login.
+5) Recargar con sesión válida: debe conservar acceso.
+6) Cerrar sesión: una ruta protegida debe volver al login.

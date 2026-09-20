@@ -1,0 +1,1 @@
+V9: catálogo de evidencias P/R/M/C, cálculo transparente de dominio/calificación provisional, rúbrica de cuatro estados y ruta de pensamiento en las 11 fichas. Pendiente: conexión real a Google Sheets, catalogación exhaustiva de reactivos, interacciones visuales específicas y QA real por dispositivo.

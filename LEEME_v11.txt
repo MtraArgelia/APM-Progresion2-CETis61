@@ -1,0 +1,4 @@
+V11 · GOOGLE SHEETS + APPS SCRIPT
+Esta versión deja preparada la integración real: cuentas por rol, sesión persistente, alta masiva, registro idempotente de respuestas, avance por estudiante, consulta de datos propios y consulta docente protegida por rol.
+No se declara conectada: aún deben introducirse el ID de la Google Sheet y la URL /exec del despliegue Apps Script.
+Después de esa configuración deben hacerse pruebas con cuentas de ensayo antes de datos reales.

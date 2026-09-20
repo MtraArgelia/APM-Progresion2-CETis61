@@ -1,0 +1,97 @@
+{
+  "version": "v10",
+  "fichas": 11,
+  "catalogItems": 45,
+  "allStructuralChecksPass": true,
+  "checks": {
+    "Ficha_2_0.html": {
+      "session": true,
+      "domain": true,
+      "thinking_route": true,
+      "specific_interaction": true,
+      "interaction_engine": true,
+      "responsive": true
+    },
+    "Ficha_2_1.html": {
+      "session": true,
+      "domain": true,
+      "thinking_route": true,
+      "specific_interaction": true,
+      "interaction_engine": true,
+      "responsive": true
+    },
+    "Ficha_2_2.html": {
+      "session": true,
+      "domain": true,
+      "thinking_route": true,
+      "specific_interaction": true,
+      "interaction_engine": true,
+      "responsive": true
+    },
+    "Ficha_2_3.html": {
+      "session": true,
+      "domain": true,
+      "thinking_route": true,
+      "specific_interaction": true,
+      "interaction_engine": true,
+      "responsive": true
+    },
+    "Ficha_2_4.html": {
+      "session": true,
+      "domain": true,
+      "thinking_route": true,
+      "specific_interaction": true,
+      "interaction_engine": true,
+      "responsive": true
+    },
+    "Ficha_2_5.html": {
+      "session": true,
+      "domain": true,
+      "thinking_route": true,
+      "specific_interaction": true,
+      "interaction_engine": true,
+      "responsive": true
+    },
+    "Ficha_2_6.html": {
+      "session": true,
+      "domain": true,
+      "thinking_route": true,
+      "specific_interaction": true,
+      "interaction_engine": true,
+      "responsive": true
+    },
+    "Ficha_2_7.html": {
+      "session": true,
+      "domain": true,
+      "thinking_route": true,
+      "specific_interaction": true,
+      "interaction_engine": true,
+      "responsive": true
+    },
+    "Ficha_2_8.html": {
+      "session": true,
+      "domain": true,
+      "thinking_route": true,
+      "specific_interaction": true,
+      "interaction_engine": true,
+      "responsive": true
+    },
+    "Ficha_2_9.html": {
+      "session": true,
+      "domain": true,
+      "thinking_route": true,
+      "specific_interaction": true,
+      "interaction_engine": true,
+      "responsive": true
+    },
+    "Ficha_2_10.html": {
+      "session": true,
+      "domain": true,
+      "thinking_route": true,
+      "specific_interaction": true,
+      "interaction_engine": true,
+      "responsive": true
+    }
+  },
+  "warning": "Auditoría estructural; no sustituye pruebas reales de navegador/dispositivo."
+}

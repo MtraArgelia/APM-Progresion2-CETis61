@@ -1,0 +1,6 @@
+V10 · REACTIVOS + INTERACCIONES
+Reactivos/evidencias catalogados: 45.
+Las 11 fichas tienen una interacción pedagógica específica y conservan sesión, avance y dominio.
+Se evita automatizar respuestas abiertas de argumentación/modelación.
+Esta versión todavía no está conectada a una Google Sheet real y la auditoría realizada es estructural.
+Siguiente etapa: conexión definitiva Apps Script/Sheets, autorización docente y pruebas de sincronización; después QA real de interfaz y cierre visual.

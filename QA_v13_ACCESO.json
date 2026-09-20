@@ -1,0 +1,11 @@
+{
+  "version": "v13-acceso-protegido",
+  "apiConfigured": true,
+  "indexProtected": true,
+  "fichasFound": 11,
+  "fichasProtected": 11,
+  "loginReturnHelper": true,
+  "launcher": true,
+  "note": "QA estructural. La validación funcional final debe hacerse en navegador contra Apps Script/GitHub Pages.",
+  "allStructuralChecksPass": true
+}

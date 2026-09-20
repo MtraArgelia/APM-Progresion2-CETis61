@@ -1,0 +1,14 @@
+<!doctype html><html lang='es'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>Acceso · Progresión 2</title><style>body{font-family:system-ui;margin:0;background:#f7f5f3}.w{max-width:470px;margin:40px auto;padding:18px}.c{background:#fff;border:1px solid #ddd;border-radius:18px;padding:24px}label{display:block;margin:14px 0 6px;font-weight:700}input,button{width:100%;box-sizing:border-box;min-height:46px;font-size:16px;border-radius:10px}input{padding:10px;border:1px solid #999}button{margin-top:18px;border:0;background:#7a1830;color:#fff;font-weight:800}.m{min-height:24px;color:#8b1e2d}</style>
+<script>
+window.P2LoginReturn=(function(){
+  const q=new URLSearchParams(location.search);
+  function destination(){
+    const r=q.get('return');
+    if(!r) return 'index.html';
+    if(r.includes('://') || r.startsWith('//') || r.includes('..')) return 'index.html';
+    return r;
+  }
+  return {destination};
+})();
+</script>
+</head><body><main class='w'><section class='c'><h1>Aplicaciones del Pensamiento Matemático</h1><p>Progresión 2 · CETis 61</p><form id='f'><label>Correo institucional<input id='email' type='email' autocomplete='username' required></label><label>Contraseña<input id='pwd' type='password' autocomplete='current-password' required></label><button>Iniciar sesión</button><p id='msg' class='m' aria-live='polite'></p></form><p>La sesión se conservará al recargar mientras siga vigente. En equipos compartidos, cierra sesión al terminar.</p></section></main><script src='auth_v11.js'></script><script>if(P2Auth.valid())location.href=P2LoginReturn.destination();f.addEventListener('submit',async e=>{e.preventDefault();msg.textContent='Verificando…';try{const x=await P2Auth.login(email.value,pwd.value);if(x.ok)location.href=P2LoginReturn.destination();else msg.textContent=x.error||'Acceso no válido'}catch(err){msg.textContent=P2Auth.configured()?'No fue posible conectar.':'Módulo preparado; falta conectar Apps Script.'}})</script></body></html>

@@ -1,0 +1,1 @@
+Abrir login.html. Usuario: estudiante.prueba@cetis61.edu.mx | Contraseña: PruebaEst26! | Verificar sesión, respuesta en RESPUESTAS y después cierre de registro.
