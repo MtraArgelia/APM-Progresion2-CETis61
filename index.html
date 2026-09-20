@@ -1,0 +1,60 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Progresión 2 · Prototipos</title><style>
+:root{--navy:#123a63;--burg:#981f37;--gold:#f4bf3a;--cyan:#21a9d6;--paper:#f7f4ec;--ink:#183044;--ok:#2d7d46;--bad:#b33a3a}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,Segoe UI,Arial,sans-serif;background:#edf2f6;color:var(--ink)}
+header{background:linear-gradient(110deg,var(--navy),#245c8d);color:white;padding:18px 5vw;position:sticky;top:0;z-index:3;box-shadow:0 2px 12px #0003}
+header b{font-size:1.15rem}header small{display:block;opacity:.9}.wrap{max-width:980px;margin:auto;padding:24px 18px 90px}
+.card{background:white;border-radius:20px;padding:22px;margin:18px 0;box-shadow:0 8px 26px #16324a18;border:1px solid #dfe8ef}
+.hero{background:linear-gradient(135deg,#fff7e4,#e9f7ff)}h1,h2{color:var(--navy)}h1{margin:.2em 0}.tag{display:inline-block;background:var(--burg);color:#fff;padding:6px 12px;border-radius:999px;font-weight:700}
+.q{border-left:6px solid var(--gold);padding-left:14px}.opts label{display:block;padding:10px 12px;border:1px solid #d8e1e8;border-radius:12px;margin:8px 0;cursor:pointer}
+input[type=number],input[type=text],textarea,select{width:100%;padding:11px;border:1px solid #b8c8d5;border-radius:10px;font-size:1rem}textarea{min-height:90px}
+button{border:0;border-radius:12px;padding:11px 16px;background:var(--navy);color:#fff;font-weight:700;cursor:pointer;margin:6px 6px 6px 0}
+button.alt{background:var(--burg)}.feedback{margin-top:10px;padding:10px 12px;border-radius:10px;display:none}.ok{display:block;background:#e4f5e8;color:#205d33}.bad{display:block;background:#fde8e8;color:#8b2828}
+.steps{display:flex;gap:8px;flex-wrap:wrap}.steps span{background:#e8f2fa;padding:8px 10px;border-radius:10px;font-weight:650}
+.profe{display:flex;gap:14px;align-items:center;background:#fff1e6;border:2px solid #e9b9a7;border-radius:18px;padding:14px}.profe .avatar{width:62px;height:62px;border-radius:50%;background:var(--burg);color:white;display:grid;place-items:center;font-weight:800}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}.mini{background:#f7fafc;padding:14px;border-radius:14px;border:1px solid #dce7ee}
+nav{position:fixed;bottom:0;left:0;right:0;background:white;border-top:1px solid #ccd8e1;padding:10px;display:flex;justify-content:center;gap:10px;z-index:4}
+nav button{margin:0}.screen{display:none}.screen.active{display:block}.muted{color:#637789}.formula{font-size:1.35rem;text-align:center;background:#f3f7fb;padding:14px;border-radius:14px}
+@media(max-width:600px){header{padding:14px 16px}.wrap{padding:14px 12px 90px}.card{padding:17px;border-radius:16px}h1{font-size:1.6rem}}
+
+.brandbar{display:flex;gap:14px;align-items:center;justify-content:space-between;background:#fff;padding:9px 5vw;border-bottom:4px solid var(--burg)}
+.brandbar img{max-height:44px;max-width:29%;object-fit:contain}.visual{width:100%;max-height:430px;object-fit:contain;border-radius:16px;background:#fff;margin:10px 0}
+.profe img{width:70px;height:70px;object-fit:cover;border-radius:50%;border:3px solid white;box-shadow:0 2px 8px #0002}
+.levels{display:flex;gap:7px;flex-wrap:wrap;margin-top:12px}.levels span{font-size:.82rem;padding:5px 9px;border-radius:999px;background:#edf3f8}
+.progress{height:7px;background:#dbe5ec}.progress i{display:block;height:100%;background:linear-gradient(90deg,var(--gold),var(--burg));width:0}
+.badge{font-size:.78rem;background:#e9f5fb;color:#14506e;padding:4px 8px;border-radius:999px;font-weight:700}
+
+.completion{border:2px solid #c7d9e7;background:linear-gradient(135deg,#f8fbfd,#fff9e9)}
+button:focus,input:focus,textarea:focus,select:focus,a:focus{outline:3px solid #f4bf3a;outline-offset:3px}
+button:disabled{opacity:.65;cursor:default}.route{display:grid;grid-template-columns:repeat(auto-fit,minmax(95px,1fr));gap:8px;margin-top:12px}
+.route a{text-decoration:none}.route .node{padding:11px 6px;text-align:center;border-radius:12px;background:#edf3f8;color:#173b61;font-weight:800;border:2px solid transparent}
+.route .done{background:#e2f0d9;border-color:#6aa26f}.route .current{border-color:#981f37;background:#fff1f3}
+.rubric{width:100%;border-collapse:collapse}.rubric th,.rubric td{border:1px solid #d8e2e9;padding:8px;vertical-align:top}.rubric th{background:#173b61;color:white}
+
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.version-chip{display:inline-block;background:#eef5fa;color:#173b61;border:1px solid #c9dae6;border-radius:999px;padding:5px 9px;font-size:.75rem;font-weight:800}
+.helpbox{background:#f7fbfd;border:1px solid #d6e5ee;border-radius:14px;padding:13px;margin:12px 0}
+footer{max-width:980px;margin:20px auto 90px;padding:15px 18px;color:#64798a;font-size:.82rem;text-align:center}
+</style><style>
+html:not([data-auth="ok"]) body{visibility:hidden}
+</style>
+<script src="auth_v11.js"></script>
+<script src="route_guard_v13.js"></script>
+</head>
+<body><div class="brandbar"><img src="assets/dgeti.png" alt="DGETI"><img src="assets/cetis61.jpg" alt="CETis 61"><img src="assets/stem.jpg" alt="CETis 61 STEM"></div><header><b>Aplicaciones del Pensamiento Matemático · CETis 61</b><small>Progresión 2 · Prototipos digitales navegables</small></header>
+<main class="wrap"><div class="card hero"><span class="tag">ÍNDICE DIGITAL</span><h1>Medir lo inaccesible</h1><p>Abre cada ficha. Los prototipos funcionan sin conexión y conservan respuestas abiertas para razonamiento y modelación.</p></div><div class="grid"><a class="mini" href="Ficha_2_0.html" style="text-decoration:none;color:inherit"><b>Ficha 2.0</b><br>Abrir prototipo →</a>
+<a class="mini" href="Ficha_2_1.html" style="text-decoration:none;color:inherit"><b>Ficha 2.1</b><br>Abrir prototipo →</a>
+<a class="mini" href="Ficha_2_2.html" style="text-decoration:none;color:inherit"><b>Ficha 2.2</b><br>Abrir prototipo →</a>
+<a class="mini" href="Ficha_2_3.html" style="text-decoration:none;color:inherit"><b>Ficha 2.3</b><br>Abrir prototipo →</a>
+<a class="mini" href="Ficha_2_4.html" style="text-decoration:none;color:inherit"><b>Ficha 2.4</b><br>Abrir prototipo →</a>
+<a class="mini" href="Ficha_2_5.html" style="text-decoration:none;color:inherit"><b>Ficha 2.5</b><br>Abrir prototipo →</a>
+<a class="mini" href="Ficha_2_6.html" style="text-decoration:none;color:inherit"><b>Ficha 2.6</b><br>Abrir prototipo →</a>
+<a class="mini" href="Ficha_2_7.html" style="text-decoration:none;color:inherit"><b>Ficha 2.7</b><br>Abrir prototipo →</a>
+<a class="mini" href="Ficha_2_8.html" style="text-decoration:none;color:inherit"><b>Ficha 2.8</b><br>Abrir prototipo →</a>
+<a class="mini" href="Ficha_2_9.html" style="text-decoration:none;color:inherit"><b>Ficha 2.9</b><br>Abrir prototipo →</a>
+<a class="mini" href="Ficha_2_10.html" style="text-decoration:none;color:inherit"><b>Ficha 2.10</b><br>Abrir prototipo →</a></div><div class="card"><h2>Zona docente</h2><p>La v3 incorpora identificación de estudiante, guardado local de respuestas abiertas y una capa preparada para Google Sheets + Apps Script.</p><a href="panel_docente.html"><button>Abrir panel docente</button></a></div><div class="card"><h2>Herramientas docentes</h2><p><a href="panel_docente.html"><button>Panel de evidencias</button></a> <a href="rubrica_docente.html"><button>Rúbrica P/R/M/C</button></a></p></div><div class="card"><h2>Antes de usar con un grupo</h2><p>Esta es una versión candidata. Revisa primero <a href="guia_docente.html">la guía docente</a>, prueba una ficha desde celular y computadora y configura la conexión de datos solo si deseas centralizar evidencias.</p></div></main>
+<script>
+const fs=['2.0','2.1','2.2','2.3','2.4','2.5','2.6','2.7','2.8','2.9','2.10'];
+let pg={};try{pg=JSON.parse(localStorage.getItem('cetis61_p2_progress')||'{}')}catch(e){}
+const route=document.createElement('div');route.className='card';route.innerHTML='<h2>Mi ruta de avance</h2><p>El color verde indica una ficha que registraste como concluida.</p><div class="route">'+fs.map(f=>`<a href="Ficha_${f.replace('.','_')}.html"><div class="node ${pg[f]?.completed?'done':''}">${pg[f]?.completed?'✓ ':''}${f}</div></a>`).join('')+'</div>';
+document.querySelector('main').prepend(route);
+</script><footer><span class="version-chip">Candidato v5</span> · Progresión 2 digital · CETis 61</footer></body></html>
