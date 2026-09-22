@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Panel docente · APM CETis 61</title>
+<style>
+:root{--wine:#8f1736;--navy:#174b78;--ink:#172033;--muted:#667085;--bg:#f5f7fa;--card:#fff;--line:#dfe5ec;--ok:#176b3a;--warn:#9a6700;--bad:#a61b1b}
+*{box-sizing:border-box} body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--ink)}
+header{background:linear-gradient(120deg,#153f67,#225e91);color:#fff;padding:22px clamp(18px,5vw,60px);border-top:4px solid var(--wine)}
+header h1{margin:0 0 4px;font-size:clamp(1.35rem,3vw,2rem)} header p{margin:0;opacity:.9}
+.top{display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin-top:14px}
+button,.btn,select,input,textarea{font:inherit}.btn,button{border:0;border-radius:10px;padding:10px 14px;cursor:pointer;font-weight:700}
+.btn-light{background:#fff;color:#174b78}.btn-primary{background:var(--wine);color:#fff}.btn-soft{background:#eef3f8;color:#234}
+main{max-width:1180px;margin:22px auto;padding:0 16px 50px}
+.toolbar,.summary,.card{background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:0 3px 14px #10243a10}
+.toolbar{padding:14px;display:grid;grid-template-columns:1fr 1fr auto;gap:12px;align-items:end}
+label{font-size:.82rem;font-weight:800;color:#475467;display:block;margin-bottom:5px}
+select,input[type=text],input[type=number],textarea{width:100%;border:1px solid #cfd7e2;border-radius:10px;padding:10px;background:#fff}
+.summary{margin:14px 0;padding:14px 18px;display:flex;gap:22px;flex-wrap:wrap;align-items:center}
+.metric b{font-size:1.35rem}.metric span{display:block;color:var(--muted);font-size:.8rem}
+#cards{display:grid;gap:14px}.card{padding:18px}
+.card-head{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}.name{font-weight:850;font-size:1.05rem}
+.meta{color:var(--muted);font-size:.85rem;margin-top:3px}.pill{border-radius:999px;padding:5px 9px;font-size:.78rem;font-weight:800;background:#eef3f8;white-space:nowrap}
+.question{margin:15px 0 7px;font-weight:800}.answer{background:#f8fafc;border-left:4px solid var(--navy);padding:12px;border-radius:8px;white-space:pre-wrap;line-height:1.45}
+.eval{margin-top:14px;border-top:1px solid var(--line);padding-top:14px;display:grid;grid-template-columns:180px 1fr;gap:12px}
+.score-buttons{display:flex;gap:7px;flex-wrap:wrap;margin-top:8px}.score-buttons button{padding:7px 9px;background:#eef2f6;color:#26364a}
+.score-buttons button.active{background:var(--navy);color:#fff}
+.actions{display:flex;align-items:center;gap:10px;justify-content:flex-end;margin-top:12px}.status{font-size:.85rem;color:var(--muted);margin-right:auto}
+.empty,.loading,.error{padding:35px;text-align:center;background:#fff;border:1px dashed #cbd5e1;border-radius:16px}.error{color:var(--bad)}
+.rubric{font-size:.78rem;color:var(--muted);margin-top:7px;line-height:1.35}
+@media(max-width:720px){.toolbar{grid-template-columns:1fr}.eval{grid-template-columns:1fr}.card-head{flex-direction:column}.actions{align-items:stretch;flex-direction:column}.status{margin:0}}
+</style>
+</head>
+<body>
+<header>
+  <h1>Panel docente · Valoración de evidencias</h1>
+  <p>Aplicaciones del Pensamiento Matemático · CETis 61 · v14.3.4</p>
+  <div class="top">
+    <div id="teacher">Verificando sesión docente…</div>
+    <div><a class="btn btn-light" href="index.html">← Inicio</a> <button class="btn-light" id="logout">Cerrar sesión</button></div>
+  </div>
+</header>
+
+<main>
+  <section class="toolbar">
+    <div><label for="ficha">Ficha</label><select id="ficha"><option value="2.0">Ficha 2.0 · Diagnóstico</option></select></div>
+    <div><label for="group">Grupo</label><input id="group" type="text" placeholder="Todos los grupos"></div>
+    <button class="btn-primary" id="refresh">Actualizar pendientes</button>
+  </section>
+
+  <section class="summary">
+    <div class="metric"><b id="pendingCount">—</b><span>Pendientes visibles</span></div>
+    <div class="metric"><b id="studentCount">—</b><span>Estudiantes</span></div>
+    <div class="metric"><b id="dimensionCount">—</b><span>Dimensiones con evidencia</span></div>
+    <div style="margin-left:auto;color:var(--muted);font-size:.82rem">Solo se muestra la entrega más reciente de cada estudiante por reactivo.</div>
+  </section>
+
+  <div id="cards"><div class="loading">Cargando evidencias pendientes…</div></div>
+</main>
+
+<script src="auth_v11.js"></script>
+<script>
+(()=>{
+ const $=s=>document.querySelector(s);
+ const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+ let current=[];
+
+ function rubric(dim){
+   const m={
+    P:'Procedimiento: uso y desarrollo del proceso matemático.',
+    R:'Razonamiento: explicación, relaciones y justificación.',
+    M:'Modelación: representación de la situación, supuestos y estrategia.',
+    C:'Comunicación: claridad para expresar e interpretar ideas matemáticas.'
+   };
+   return m[dim]||'Valora la calidad de la evidencia presentada.';
+ }
+ function template(score){
+   if(score>=90)return 'Evidencia clara, pertinente y suficientemente justificada.';
+   if(score>=70)return 'La idea principal es adecuada; puede fortalecer la justificación o precisión.';
+   if(score>=50)return 'Muestra comprensión parcial; requiere desarrollar mejor el razonamiento.';
+   if(score>0)return 'La evidencia es insuficiente o poco relacionada con lo solicitado.';
+   return 'No se identifica evidencia pertinente para el criterio evaluado.';
+ }
+ async function guard(){
+   if(!window.P2Auth?.valid?.()){location.replace('login.html?return=panel_docente_v14_3_4.html');return false}
+   const r=await P2Auth.send('me',{});
+   if(!r?.ok){location.replace('login.html?return=panel_docente_v14_3_4.html');return false}
+   const s=r.student||{};
+   const role=String(s.role||'').toLowerCase();
+   if(!['docente','admin'].includes(role)){
+     $('#cards').innerHTML='<div class="error"><b>Acceso restringido.</b><br>Esta vista requiere una cuenta docente.</div>';
+     $('#teacher').textContent=s.name||s.email||'Sesión activa';
+     return false;
+   }
+   $('#teacher').textContent=`${s.name||'Docente'} · ${s.email||''}`;
+   return true;
+ }
+ async function load(){
+   $('#cards').innerHTML='<div class="loading">Cargando evidencias pendientes…</div>';
+   const data={ficha:$('#ficha').value};
+   const g=$('#group').value.trim(); if(g)data.group=g;
+   const r=await P2Auth.send('teacherPendingEvaluations',data);
+   if(!r?.ok){$('#cards').innerHTML=`<div class="error">No se pudieron cargar los pendientes: ${esc(r?.error||'error desconocido')}</div>`;return}
+   current=Array.isArray(r.rows)?r.rows:[];
+   render();
+ }
+ function render(){
+   $('#pendingCount').textContent=current.length;
+   $('#studentCount').textContent=new Set(current.map(x=>String(x.correo||'').toLowerCase())).size;
+   $('#dimensionCount').textContent=new Set(current.map(x=>x.dimension).filter(Boolean)).size;
+   if(!current.length){$('#cards').innerHTML='<div class="empty"><b>✓ No hay evidencias pendientes con estos filtros.</b><br>Las valoraciones guardadas dejan de aparecer aquí automáticamente.</div>';return}
+   $('#cards').innerHTML=current.map((x,i)=>`
+    <article class="card" data-i="${i}">
+      <div class="card-head">
+       <div><div class="name">${esc(x.nombre)}</div><div class="meta">${esc(x.correo)} · Grupo ${esc(x.grupo)} · Ficha ${esc(x.ficha)} · Intento ${esc(x.intento)}</div></div>
+       <span class="pill">${esc(x.dimension||'—')} · ${esc(x.nivelEvidencia||'Evidencia')}</span>
+      </div>
+      <div class="question">${esc(x.pregunta||x.preguntaId)}</div>
+      <div class="answer">${esc(x.respuesta)}</div>
+      <div class="eval">
+       <div>
+        <label>Puntaje / 100</label>
+        <input class="score" type="number" min="0" max="100" step="1" value="75">
+        <div class="score-buttons">${[0,25,50,75,100].map(n=>`<button type="button" data-score="${n}" class="${n===75?'active':''}">${n}</button>`).join('')}</div>
+       </div>
+       <div>
+        <label>Retroalimentación docente</label>
+        <textarea class="feedback" rows="3">${esc(template(75))}</textarea>
+        <div class="rubric"><b>Referencia ${esc(x.dimension||'')}:</b> ${esc(rubric(x.dimension))} El puntaje es una decisión docente; las sugerencias del panel no sustituyen tu juicio.</div>
+       </div>
+      </div>
+      <div class="actions"><span class="status">Pendiente de valoración</span><button class="btn-soft exclude" type="button">Excluir de evaluación</button><button class="btn-primary save" type="button">Guardar valoración</button></div>
+    </article>`).join('');
+   bindCards();
+ }
+ function bindCards(){
+   document.querySelectorAll('.card').forEach(card=>{
+     const score=card.querySelector('.score'), fb=card.querySelector('.feedback');
+     card.querySelectorAll('[data-score]').forEach(b=>b.addEventListener('click',()=>{
+       card.querySelectorAll('[data-score]').forEach(z=>z.classList.remove('active')); b.classList.add('active');
+       score.value=b.dataset.score; fb.value=template(Number(score.value));
+     }));
+     score.addEventListener('input',()=>{card.querySelectorAll('[data-score]').forEach(z=>z.classList.toggle('active',Number(z.dataset.score)===Number(score.value)))});
+     card.querySelector('.save').addEventListener('click',()=>saveCard(card));
+     card.querySelector('.exclude').addEventListener('click',()=>excludeCard(card));
+   });
+ }
+ async function excludeCard(card){
+   const i=Number(card.dataset.i), x=current[i], btn=card.querySelector('.exclude'), status=card.querySelector('.status');
+   const ok=confirm('Esta acción NO borra la respuesta. La marcará como registro excluido de la evaluación y conservará la trazabilidad. ¿Continuar?');
+   if(!ok)return;
+   btn.disabled=true; status.textContent='Excluyendo y recalculando…';
+   const r=await P2Auth.send('teacherExcludeEvidence',{
+     responseEventId:x.responseEventId,
+     reason:'Registro técnico/histórico excluido desde Panel docente v14.3.4'
+   });
+   if(!r?.ok){btn.disabled=false;status.textContent='⚠ '+(r?.error||'No se pudo excluir');return}
+   status.textContent='✓ Evidencia excluida sin borrar el historial';
+   setTimeout(load,500);
+ }
+ async function saveCard(card){
+   const i=Number(card.dataset.i), x=current[i], btn=card.querySelector('.save'), status=card.querySelector('.status');
+   const score=Number(card.querySelector('.score').value);
+   if(!Number.isFinite(score)||score<0||score>100){status.textContent='⚠ Puntaje entre 0 y 100';return}
+   btn.disabled=true; status.textContent='Guardando y recalculando…';
+   const r=await P2Auth.send('teacherEvaluation',{
+     responseEventId:x.responseEventId,score,maxScore:100,feedback:card.querySelector('.feedback').value.trim()
+   });
+   if(!r?.ok){btn.disabled=false;status.textContent='⚠ '+(r?.error||'No se pudo guardar');return}
+   status.textContent='✓ Valoración guardada';
+   setTimeout(load,500);
+ }
+ $('#refresh').addEventListener('click',load);
+ $('#group').addEventListener('keydown',e=>{if(e.key==='Enter')load()});
+ $('#logout').addEventListener('click',()=>{P2Auth.clear();location.replace('login.html')});
+ document.addEventListener('DOMContentLoaded',async()=>{if(await guard())load()});
+})();
+</script>
+</body>
+</html>
