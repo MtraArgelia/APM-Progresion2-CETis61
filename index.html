@@ -34,27 +34,59 @@ button:disabled{opacity:.65;cursor:default}.route{display:grid;grid-template-col
 .version-chip{display:inline-block;background:#eef5fa;color:#173b61;border:1px solid #c9dae6;border-radius:999px;padding:5px 9px;font-size:.75rem;font-weight:800}
 .helpbox{background:#f7fbfd;border:1px solid #d6e5ee;border-radius:14px;padding:13px;margin:12px 0}
 footer{max-width:980px;margin:20px auto 90px;padding:15px 18px;color:#64798a;font-size:.82rem;text-align:center}
-</style><style>
-html:not([data-auth="ok"]) body{visibility:hidden}
-</style>
-<script src="auth_v11.js"></script>
-<script src="route_guard_v13.js"></script>
-</head>
+</style></head>
 <body><div class="brandbar"><img src="assets/dgeti.png" alt="DGETI"><img src="assets/cetis61.jpg" alt="CETis 61"><img src="assets/stem.jpg" alt="CETis 61 STEM"></div><header><b>Aplicaciones del Pensamiento Matemático · CETis 61</b><small>Progresión 2 · Prototipos digitales navegables</small></header>
-<main class="wrap"><div class="card hero"><span class="tag">ÍNDICE DIGITAL</span><h1>Medir lo inaccesible</h1><p>Abre cada ficha. Cada ficha conserva tu sesión y registra en línea las evidencias y avances mientras el registro de actividades esté abierto.</p></div><div class="grid"><a class="mini" href="Ficha_2_0.html" style="text-decoration:none;color:inherit"><b>Ficha 2.0</b><br>Abrir prototipo →</a>
-<a class="mini" href="Ficha_2_1.html" style="text-decoration:none;color:inherit"><b>Ficha 2.1</b><br>Abrir prototipo →</a>
-<a class="mini" href="Ficha_2_2.html" style="text-decoration:none;color:inherit"><b>Ficha 2.2</b><br>Abrir prototipo →</a>
-<a class="mini" href="Ficha_2_3.html" style="text-decoration:none;color:inherit"><b>Ficha 2.3</b><br>Abrir prototipo →</a>
-<a class="mini" href="Ficha_2_4.html" style="text-decoration:none;color:inherit"><b>Ficha 2.4</b><br>Abrir prototipo →</a>
-<a class="mini" href="Ficha_2_5.html" style="text-decoration:none;color:inherit"><b>Ficha 2.5</b><br>Abrir prototipo →</a>
-<a class="mini" href="Ficha_2_6.html" style="text-decoration:none;color:inherit"><b>Ficha 2.6</b><br>Abrir prototipo →</a>
-<a class="mini" href="Ficha_2_7.html" style="text-decoration:none;color:inherit"><b>Ficha 2.7</b><br>Abrir prototipo →</a>
-<a class="mini" href="Ficha_2_8.html" style="text-decoration:none;color:inherit"><b>Ficha 2.8</b><br>Abrir prototipo →</a>
-<a class="mini" href="Ficha_2_9.html" style="text-decoration:none;color:inherit"><b>Ficha 2.9</b><br>Abrir prototipo →</a>
-<a class="mini" href="Ficha_2_10.html" style="text-decoration:none;color:inherit"><b>Ficha 2.10</b><br>Abrir prototipo →</a></div><div class="card"><h2>Zona docente</h2><p>La v3 incorpora identificación de estudiante, guardado local de respuestas abiertas y una capa preparada para Google Sheets + Apps Script.</p><a href="panel_docente.html"><button>Abrir panel docente</button></a></div><div class="card"><h2>Herramientas docentes</h2><p><a href="panel_docente.html"><button>Panel de evidencias</button></a> <a href="rubrica_docente.html"><button>Rúbrica P/R/M/C</button></a></p></div><div class="card"><h2>Antes de usar con un grupo</h2><p>Esta es una versión candidata. Revisa primero <a href="guia_docente.html">la guía docente</a>, prueba una ficha desde celular y computadora y configura la conexión de datos solo si deseas centralizar evidencias.</p></div></main>
+<main class="wrap" id="appMain">
+  <div class="card"><h2>Verificando sesión…</h2><p class="muted">Preparando la vista correspondiente a tu rol.</p></div>
+</main>
+<script src="auth_v11.js"></script>
 <script>
-const fs=['2.0','2.1','2.2','2.3','2.4','2.5','2.6','2.7','2.8','2.9','2.10'];
-let pg={};try{pg=JSON.parse(localStorage.getItem('cetis61_p2_progress')||'{}')}catch(e){}
-const route=document.createElement('div');route.className='card';route.innerHTML='<h2>Mi ruta de avance</h2><p>El color verde indica una ficha que registraste como concluida.</p><div class="route">'+fs.map(f=>`<a href="Ficha_${f.replace('.','_')}.html"><div class="node ${pg[f]?.completed?'done':''}">${pg[f]?.completed?'✓ ':''}${f}</div></a>`).join('')+'</div>';
-document.querySelector('main').prepend(route);
-</script><footer><span class="version-chip">Candidato v5</span> · Progresión 2 digital · CETis 61</footer></body></html>
+(()=>{
+ const main=document.getElementById('appMain');
+ const fs=['2.0','2.1','2.2','2.3','2.4','2.5','2.6','2.7','2.8','2.9','2.10'];
+ const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+ const fichaLinks=()=>fs.map(f=>`<a class="mini" href="Ficha_${f.replace('.','_')}.html" style="text-decoration:none;color:inherit"><b>Ficha ${f}</b><br>Abrir material →</a>`).join('');
+
+ function studentView(s){
+   let pg={}; try{pg=JSON.parse(localStorage.getItem('cetis61_p2_progress')||'{}')}catch(e){}
+   const route=fs.map(f=>`<a href="Ficha_${f.replace('.','_')}.html"><div class="node ${pg[f]?.completed?'done':''}">${pg[f]?.completed?'✓ ':''}${f}</div></a>`).join('');
+   main.innerHTML=`
+     <div class="card hero"><span class="tag">RUTA DEL ESTUDIANTE</span><h1>Medir lo inaccesible</h1><p><b>${esc(s.name||'Estudiante')}</b>${s.group?' · Grupo '+esc(s.group):''}</p><p>Abre cada ficha y continúa tu trabajo. Tu avance se conserva mientras tu sesión esté activa.</p></div>
+     <div class="card"><h2>Mi ruta de avance</h2><p>El color verde indica una ficha que registraste como concluida.</p><div class="route">${route}</div></div>
+     <div class="grid">${fichaLinks()}</div>
+     <div class="card"><button id="logoutBtn" class="alt">Cerrar sesión</button></div>`;
+   document.getElementById('logoutBtn')?.addEventListener('click',()=>{try{P2Auth.clear()}catch(e){} location.replace('login.html')});
+ }
+
+ function teacherView(s){
+   main.innerHTML=`
+     <div class="card hero"><span class="tag">INICIO DOCENTE</span><h1>Panel de trabajo docente</h1><p><b>${esc(s.name||'Docente')}</b> · ${esc(s.email||'')}</p><p>Desde aquí puedes revisar evidencias y consultar los materiales sin entrar a la ruta de avance del estudiante.</p></div>
+     <div class="grid">
+       <div class="mini"><h2>Valoración de evidencias</h2><p>Revisa evidencias abiertas, registra valoración diagnóstica y retroalimentación.</p><a href="panel_docente_v14_3_7b.html"><button>Abrir panel docente</button></a></div>
+       <div class="mini"><h2>Rúbrica P/R/M/C</h2><p>Consulta la referencia para Procedimiento, Razonamiento, Modelación y Comunicación.</p><a href="rubrica_docente.html"><button>Ver rúbrica</button></a></div>
+       <div class="mini"><h2>Guía docente</h2><p>Consulta orientaciones de uso de la versión digital.</p><a href="guia_docente.html"><button>Ver guía</button></a></div>
+     </div>
+     <div class="card"><h2>Materiales de Progresión 2</h2><p>Vista de consulta docente. Estos accesos no representan tu avance.</p><div class="grid">${fichaLinks()}</div></div>
+     <div class="card"><button id="logoutBtn" class="alt">Cerrar sesión</button></div>`;
+   document.getElementById('logoutBtn')?.addEventListener('click',()=>{try{P2Auth.clear()}catch(e){} location.replace('login.html')});
+ }
+
+ async function init(){
+   if(!window.P2Auth?.valid?.()){
+     location.replace('login.html?return=index.html'); return;
+   }
+   let r;
+   try{r=await P2Auth.send('me',{})}catch(e){}
+   if(!r?.ok){
+     try{P2Auth.clear()}catch(e){}
+     location.replace('login.html?return=index.html'); return;
+   }
+   const s=r.student||{};
+   const role=String(s.role||'').trim().toLowerCase();
+   if(['docente','admin'].includes(role)){teacherView(s);return;}
+   if(role==='estudiante'){studentView(s);return;}
+   main.innerHTML='<div class="card bad"><b>Rol no reconocido.</b><br>Cierra la sesión e inténtalo nuevamente.</div>';
+ }
+ document.addEventListener('DOMContentLoaded',init);
+})();
+</script><footer><span class="version-chip">v14.3.7c · Inicio según rol</span> · Progresión 2 digital · CETis 61</footer></body></html>
