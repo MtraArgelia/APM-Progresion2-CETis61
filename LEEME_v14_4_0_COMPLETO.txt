@@ -1,0 +1,54 @@
+APM · PROGRESIÓN 2 · CETis 61
+PAQUETE COMPLETO v14.4.0
+Preparado para publicación acelerada antes del uso con estudiantes.
+
+INCLUYE
+- Fichas 2.0 a 2.10.
+- Nuevo runtime compartido para 2.1–2.10.
+- Guardado explícito: escribir no crea una entrega; Guardar sí.
+- Restauración de evidencias enviadas.
+- Avance separado de exactitud.
+- Catálogo ITEMS para toda la Progresión 2.
+- Calificación provisional/final para fichas 2.1–2.10.
+- Ficha 2.0 diagnóstica sin calificación académica.
+- Dominio P/R/M/C acumulado.
+- Panel docente con selector 2.0–2.10.
+- Control estricto de roles.
+
+PASOS DE PUBLICACIÓN
+A. APPS SCRIPT
+1. Reemplazar Código.gs por APM_AppsScript_v14_4_0_COMPLETO.txt.
+2. Guardar.
+3. Ejecutar prepararSistema() UNA vez.
+4. Implementar > Administrar implementaciones > editar implementación actual > Nueva versión.
+5. Descripción: v14.4.0 - Progresión 2 completa.
+6. Abrir la URL del Web App y comprobar version v14.4.0.
+
+B. GITHUB
+Subir/reemplazar:
+- index.html
+- Ficha_2_0.html
+- Ficha_2_1.html ... Ficha_2_10.html
+- ficha_runtime_v14_4.js
+- login.html
+- panel_docente.html
+- panel_docente_v14_4_0.html
+- rubrica_docente.html
+- guia_docente.html
+
+NO BORRAR
+- assets/
+- auth_v11.js
+- las versiones anteriores hasta terminar la prueba.
+
+PRUEBA MÍNIMA ANTES DE ABRIR AL GRUPO
+1. Estudiante Prueba: abrir 2.1.
+2. Responder una objetiva y Guardar. Verificar una fila nueva en RESPUESTAS.
+3. Escribir una abierta SIN guardar: RESPUESTAS no debe crecer.
+4. Guardarla: aparece una fila.
+5. Recargar: ambas respuestas se restauran.
+6. Docente Prueba: abrir panel v14.4.0, seleccionar Ficha 2.1 y confirmar que aparece la evidencia abierta configurada.
+7. Volver a 2.0 y confirmar que sigue en 0 pendientes y que continúa como diagnóstica.
+
+NOTA OPERATIVA
+Para mañana, si el tiempo de prueba se agota, deja a los estudiantes trabajar desde la URL raíz y usa primero 2.0–2.2. El resto ya está publicado, pero no es necesario que el grupo avance todo el mismo día.

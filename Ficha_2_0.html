@@ -87,13 +87,13 @@ header{position:relative!important;top:auto!important}
 @media(max-width:620px){.v142-toolbar{top:34px;gap:7px;padding:6px 8px}.v142-progress-wrap b{font-size:.78rem}.v142-actions{gap:5px}.v142-actions button{min-height:36px;padding:6px 8px;font-size:.78rem}.save-state-v142{font-size:.75rem;padding:5px 7px}.visual-v1421{max-width:100%!important;max-height:240px!important}.visual-v1421.zoom-v1421{max-height:none!important}.activity-v142{scroll-margin-top:92px}}
 </style></head><body data-ficha="2.0">
 <div class="brandbar"><img src="assets/dgeti.png" alt="DGETI"><img src="assets/cetis61.jpg" alt="CETis 61"><img src="assets/stem.jpg" alt="CETis 61 STEM"></div>
-<header><b>Aplicaciones del Pensamiento Matemático · CETis 61</b><small>Ficha 2.0 · Prototipo continuo v14.2.6</small><br><a id="home-v14" href="index.html" style="color:white;font-weight:800">← Volver al inicio</a></header>
+<header><b>Aplicaciones del Pensamiento Matemático · CETis 61</b><small>Ficha 2.0 · Diagnóstico · versión de aula</small><br><a id="home-v14" href="index.html" style="color:white;font-weight:800">← Volver al inicio</a></header>
 <div class="v142-toolbar" aria-label="Estado de trabajo">
   <div class="v142-progress-wrap"><b id="progressTextV142">Calculando avance…</b><div class="v142-progress-line" id="progressV142"><i></i></div></div>
   <div class="v142-actions"><span id="saveStateV142" class="save-state-v142">Preparando…</span><button id="logoutV142" type="button">Cerrar sesión</button></div>
 </div>
 <main class="continuous-v142">
-<section class="intro-v142 card"><span class="tag">PROGRESIÓN 2</span><h1>Diagnóstico · ¿Podemos medir lo que no podemos alcanzar?</h1><p>Identifica tu punto de partida en medición, geometría, selección de estrategias y argumentación.</p><p class="q"><b>Pregunta guía:</b> ¿Cómo determinarías la altura de una estructura sin medirla directamente?</p><div class="profe"><img src="assets/profe.png" alt="La profe Argelia"><div><b>LA PROFE ARGELIA TE RECUERDA:</b><br>Antes de buscar una fórmula, identifica qué observas, qué conoces y qué necesitas descubrir.</div></div>
+<section class="intro-v142 card"><span class="tag">PROGRESIÓN 2</span><div class="helpbox"><b>Evaluación diagnóstica:</b> esta ficha ayuda a identificar tu punto de partida. No genera una calificación académica.</div><h1>Diagnóstico · ¿Podemos medir lo que no podemos alcanzar?</h1><p>Identifica tu punto de partida en medición, geometría, selección de estrategias y argumentación.</p><p class="q"><b>Pregunta guía:</b> ¿Cómo determinarías la altura de una estructura sin medirla directamente?</p><div class="profe"><img src="assets/profe.png" alt="La profe Argelia"><div><b>LA PROFE ARGELIA TE RECUERDA:</b><br>Antes de buscar una fórmula, identifica qué observas, qué conoces y qué necesitas descubrir.</div></div>
 <nav class="quicknav-v142" aria-label="Actividades"><a href="#act20-reto">Reto inicial</a><a href="#act20-a">Estación A</a><a href="#act20-b">Estación B</a><a href="#act20-c">Estación C</a><a href="#act20-cierre">Cierre</a></nav></section>
 
 <details class="activity-v142" id="act20-reto" open><summary><span>1 · Reto inicial</span><span class="activity-state-v142">○ Pendiente</span></summary><div class="activity-body-v142"><img class="visual visual-v1421" src="assets/actividad_equipo.png" alt="Estudiantes realizando una actividad de medición"><p class="activity-question">Imagina una estructura alta del plantel. Dibuja o describe una estrategia para conocer su altura sin subir a ella.</p><textarea id="abierta_2_1" data-dimension="M" placeholder="Mi propuesta..."></textarea><button class="continue-v142" type="button">Guardar y continuar ↓</button></div></details>
@@ -106,16 +106,16 @@ header{position:relative!important;top:auto!important}
 
 <details class="activity-v142" id="act20-cierre"><summary><span>5 · Cierre de la ficha</span><span class="activity-state-v142">○ Pendiente</span></summary><div class="activity-body-v142"><p class="q activity-question"><b>Vuelve a la pregunta guía:</b> ¿Cómo determinarías la altura de una estructura sin medirla directamente?</p><textarea id="abierta_6_1" data-dimension="C" placeholder="Escribe con tus palabras qué cambió en tu forma de pensar..."></textarea><div class="helpbox"><b>Conexión:</b> Esta respuesta queda como evidencia abierta y se conserva para que puedas continuar después.</div><div id="pendingSummaryV1421" class="pending-summary-v1421" hidden></div><button class="continue-v142 final-v1421" type="button">Revisar y guardar cierre ✓</button></div></details>
 </main>
-<footer><span class="version-chip">Prototipo v14.2.6 · Entrega explícita + restauración de avance</span> · Aplicaciones del Pensamiento Matemático · Progresión 2 · CETis 61</footer>
+<footer><span class="version-chip">Versión de aula v14.3.8 · Entrega explícita + restauración de avance</span> · Aplicaciones del Pensamiento Matemático · Progresión 2 · CETis 61</footer>
 <script>
 function fb(id,ok,msg){let e=document.getElementById(id);e.className='feedback '+(ok?'ok':'bad');e.textContent=msg}
 function num(id,ans,tol,fid,hint){let v=parseFloat(document.getElementById(id).value);let ok=Number.isFinite(v)&&Math.abs(v-ans)<=tol;fb(fid,ok,ok?'✓ Correcto. Interpreta ahora qué representa el resultado.':'Revisa los datos, las unidades y la relación matemática. '+hint);window.P2CoreV1422?.markChecked?.(document.getElementById(id),ok)}
 function choice(name,ans,fid,hint){let e=document.querySelector('input[name="'+name+'"]:checked');let ok=!!(e&&e.value===ans);fb(fid,ok,ok?'✓ Bien razonado.':'Revisa la situación. '+hint);window.P2CoreV1422?.markChecked?.(e||document.querySelector('input[name="'+name+'"]'),ok)}
 </script>
-<script src="auth_v11.js"></script>
-<script src="route_guard_v13.js"></script>
-<script src="assessment_v9.js"></script>
-<script src="registro_v12.js"></script>
-<script src="core_v14_1.js?v=14.2.6"></script>
-<script src="core_v14_2_6.js?v=14.2.6"></script>
+<script src="auth_v11.js?v=14.3.8"></script>
+<script src="route_guard_v13.js?v=14.3.8"></script>
+<script src="assessment_v9.js?v=14.3.8"></script>
+<script src="registro_v12.js?v=14.3.8"></script>
+<script src="core_v14_1.js?v=14.3.8"></script>
+<script src="core_v14_2_6.js?v=14.3.8"></script>
 </body></html>

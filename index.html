@@ -27,14 +27,14 @@ button:focus,a:focus{outline:3px solid var(--gold);outline-offset:3px}@media(max
 <div class="brandbar"><img src="assets/dgeti.png" alt="DGETI"><img src="assets/cetis61.jpg" alt="CETis 61"><img src="assets/stem.jpg" alt="CETis 61 STEM"></div>
 <header><b>Aplicaciones del Pensamiento Matemático · CETis 61</b><small>Progresión 2 · Plataforma digital</small><div class="sessionbar"><span id="sessionWho">Verificando sesión…</span><button id="topLogout" type="button" hidden>Cerrar sesión</button></div></header>
 <main class="wrap" id="appMain"><div class="card"><h2>Verificando sesión…</h2><p class="muted">Preparando la vista correspondiente a tu rol.</p></div></main>
-<script src="auth_v11.js?v=14.3.7d"></script>
+<script src="auth_v11.js?v=14.4.0"></script>
 <script>
 (()=>{
  const main=document.getElementById('appMain'), who=document.getElementById('sessionWho'), logoutBtn=document.getElementById('topLogout');
  const fs=['2.0','2.1','2.2','2.3','2.4','2.5','2.6','2.7','2.8','2.9','2.10'];
  const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
  const hrefFicha=f=>`Ficha_${f.replace('.','_')}.html`;
- function logout(){try{P2Auth.clear()}catch(e){} location.replace('login.html?v=14.3.7d')}
+ function logout(){try{P2Auth.clear()}catch(e){} location.replace('login.html?v=14.4.0')}
  logoutBtn.addEventListener('click',logout);
  function studentView(s){
    let pg={}; try{pg=JSON.parse(localStorage.getItem('cetis61_p2_progress')||'{}')}catch(e){}
@@ -46,7 +46,7 @@ button:focus,a:focus{outline:3px solid var(--gold);outline-offset:3px}@media(max
  function teacherView(s){
    const fichas=fs.map(f=>`<a class="mini" href="${hrefFicha(f)}"><b>Ficha ${f}</b><br>Abrir material →</a>`).join('');
    who.textContent=`${s.name||'Docente'} · ${s.email||''} · Docente`; logoutBtn.hidden=false;
-   main.innerHTML=`<div class="card hero"><span class="tag">INICIO DOCENTE</span><h1>Panel de trabajo docente</h1><p><b>${esc(s.name||'Docente')}</b> · ${esc(s.email||'')}</p><p>Revisa evidencias y consulta materiales sin entrar a la ruta de avance del estudiante.</p></div><div class="grid"><div class="mini"><h2>Valoración de evidencias</h2><p>Panel conectado a Google Sheets y Apps Script.</p><a href="panel_docente_v14_3_7d.html"><button>Abrir panel docente</button></a></div><div class="mini"><h2>Rúbrica P/R/M/C</h2><p>Referencia coherente con la escala de valoración del panel.</p><a href="rubrica_docente.html?v=14.3.7d"><button>Ver rúbrica</button></a></div><div class="mini"><h2>Guía docente</h2><p>Orientaciones del flujo digital vigente.</p><a href="guia_docente.html?v=14.3.7d"><button>Ver guía</button></a></div></div><div class="card"><h2>Materiales de Progresión 2</h2><p>Vista de consulta docente; estos accesos no representan tu avance.</p><div class="grid">${fichas}</div></div>`;
+   main.innerHTML=`<div class="card hero"><span class="tag">INICIO DOCENTE</span><h1>Panel de trabajo docente</h1><p><b>${esc(s.name||'Docente')}</b> · ${esc(s.email||'')}</p><p>Revisa evidencias y consulta materiales sin entrar a la ruta de avance del estudiante. Las fichas 2.0–2.10 están habilitadas.</p></div><div class="grid"><div class="mini"><h2>Valoración de evidencias</h2><p>Panel conectado a Google Sheets y Apps Script.</p><a href="panel_docente_v14_4_0.html"><button>Abrir panel docente</button></a></div><div class="mini"><h2>Rúbrica P/R/M/C</h2><p>Referencia coherente con la escala de valoración del panel.</p><a href="rubrica_docente.html?v=14.4.0"><button>Ver rúbrica</button></a></div><div class="mini"><h2>Guía docente</h2><p>Orientaciones del flujo digital vigente.</p><a href="guia_docente.html?v=14.4.0"><button>Ver guía</button></a></div></div><div class="card"><h2>Materiales de Progresión 2</h2><p>Vista de consulta docente; estos accesos no representan tu avance.</p><div class="grid">${fichas}</div></div>`;
  }
  async function init(){
    if(!window.P2Auth?.valid?.()){location.replace('login.html?return=index.html%3Fv%3D14.3.7d');return}
@@ -60,5 +60,5 @@ button:focus,a:focus{outline:3px solid var(--gold);outline-offset:3px}@media(max
  document.addEventListener('DOMContentLoaded',init);
 })();
 </script>
-<footer><span class="version-chip">v14.3.7d · Control estricto por rol</span> · Progresión 2 digital · CETis 61</footer>
+<footer><span class="version-chip">v14.4.0 · Progresión 2 completa</span> · Progresión 2 digital · CETis 61</footer>
 </body></html>
