@@ -1,0 +1,41 @@
+APM v14.4.2 · RESTAURACIÓN DESDE SERVIDOR
+
+Problema observado:
+- RESPUESTAS sí contenía f21_q1 y f21_q2.
+- Después de recargar, Ficha 2.1 mostraba 0/10.
+- Por lo tanto, el fallo estaba en la reconstrucción del avance, no en el registro de respuestas.
+
+Corrección:
+1. Backend agrega acción myFichaData para devolver únicamente las respuestas del estudiante autenticado y de la ficha solicitada.
+2. Comparación de correo normalizada (trim + minúsculas).
+3. Frontend reconstruye el avance desde filas reales de RESPUESTAS.
+4. Una fila entregada cuenta para AVANCE sea correcta o incorrecta.
+5. La exactitud/calificación continúa separada del avance.
+6. Se conserva cualquier borrador local posterior sin eliminar la entrega previa.
+7. La barra informa cuántas entregas se recuperaron.
+
+PUBLICACIÓN
+A) Apps Script
+- Reemplazar Código.gs por APM_AppsScript_v14_4_2_RESTAURACION_SERVIDOR.txt
+- Guardar.
+- NO ejecutar prepararSistema().
+- Crear nueva versión de la implementación actual:
+  v14.4.2 - Restauración de avance por ficha
+- Verificar URL del Web App: version v14.4.2
+
+B) GitHub
+Subir/reemplazar:
+- ficha_runtime_v14_4_2.js
+- Ficha_2_1.html ... Ficha_2_10.html
+
+NO TOCAR
+- Ficha_2_0.html
+- Sheets
+- catálogo ITEMS
+- archivos assets
+- versiones anteriores
+
+PRUEBA
+Al abrir Ficha 2.1 con Estudiante Prueba, las filas existentes f21_q1 y f21_q2 deben reconstruir:
+2/10 · 20 %
+sin volver a responderlas.
