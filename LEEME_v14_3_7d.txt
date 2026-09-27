@@ -1,0 +1,76 @@
+from pathlib import Path
+
+text = """APM · PROGRESIÓN 2 · CETis 61
+LEEME v14.3.7d · Control estricto por roles
+
+OBJETIVO DE ESTA VERSIÓN
+Corregir la separación de acceso entre estudiantes y docentes, retirar del flujo normal las herramientas docentes antiguas y mantener como panel vigente el conectado a Google Sheets + Apps Script.
+
+CAMBIOS PRINCIPALES
+1. index.html
+   - Detecta el rol de la sesión.
+   - Estudiante: muestra únicamente Ruta del estudiante, Mi ruta de avance y fichas 2.0–2.10.
+   - Docente/Admin: muestra Inicio docente, panel de valoración, rúbrica, guía y materiales de consulta.
+   - El botón Cerrar sesión queda visible en la parte superior.
+
+2. login.html
+   - Conserva el retorno seguro a index.html u otra ruta interna válida.
+   - No permite retornos externos.
+
+3. panel_docente.html
+   - Se mantiene solo por compatibilidad.
+   - El panel antiguo de importación manual de archivos JSON deja de ser parte del flujo normal.
+   - Docente/Admin: redirige al panel vigente.
+   - Estudiante: regresa al inicio del estudiante.
+
+4. panel_docente_v14_3_7d.html
+   - Panel docente vigente de valoración de evidencias.
+   - Solo accesible para roles Docente/Admin.
+   - Mantiene el backend v14.3.7b, ya validado.
+   - Ficha 2.0 continúa como evaluación diagnóstica.
+   - Avance ≠ calificación ≠ dominio.
+   - La Ficha 2.0 no genera calificación académica.
+   - Las valoraciones alimentan evidencia P/R/M/C.
+
+5. rubrica_docente.html
+   - Protegida por rol.
+   - Solo accesible para Docente/Admin.
+   - Referencia P/R/M/C coherente con el flujo vigente.
+
+6. guia_docente.html
+   - Protegida por rol.
+   - Actualizada para describir el flujo vigente.
+   - Elimina la antigua importación manual de JSON como proceso normal.
+
+VALIDACIONES REALIZADAS
+- Vista docente: correcta.
+- Vista estudiante: correcta.
+- Un estudiante no puede permanecer en las páginas docentes; es devuelto a su inicio.
+- El panel docente vigente reconoce correctamente la sesión docente.
+- Ficha 2.0:
+  * Avance: 100 % validado.
+  * Pendientes docentes: 0 después de valorar las 3 evidencias abiertas.
+  * Calificación provisional/final: vacías, por ser diagnóstico.
+  * Dominio P/R/M/C: se calcula solo con evidencia suficiente.
+- Evidencias históricas técnicas: excluidas mediante trazabilidad, sin borrar RESPUESTAS.
+
+BACKEND
+Versión vigente: v14.3.7b
+No fue necesario modificar Apps Script ni Google Sheets para v14.3.7d.
+
+ARCHIVOS DE ESTA ENTREGA
+- index.html
+- login.html
+- panel_docente.html
+- panel_docente_v14_3_7d.html
+- rubrica_docente.html
+- guia_docente.html
+- LEEME_v14_3_7d.txt
+
+NOTA
+No borrar todavía versiones anteriores del panel docente. Se conservan temporalmente como respaldo durante la etapa de pruebas.
+"""
+
+out = Path("/mnt/data/LEEME_v14_3_7d.txt")
+out.write_text(text, encoding="utf-8")
+print(out)
