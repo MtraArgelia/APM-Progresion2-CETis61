@@ -1,0 +1,36 @@
+APM v14.4.1 · Ajuste de restauración y avance
+
+Motivo:
+En la prueba de Ficha 2.1 se confirmó que:
+- una respuesta objetiva se guardó correctamente;
+- un borrador abierto sobrevivió a la recarga sin crear fila;
+- al guardarlo se creó una única fila en RESPUESTAS.
+
+Se observó además una inconsistencia visual: después de guardar la segunda evidencia,
+la tarjeta aparecía como Completada pero el contador superior seguía momentáneamente en 1/10.
+
+Este parche:
+1. Persiste localmente el conjunto de actividades ya entregadas.
+2. Nunca borra el avance previo solo porque el estudiante empiece a editar una revisión.
+3. Conserva un borrador local posterior aunque ya exista una entrega previa en servidor.
+4. Tras recargar, muestra “Cambios sin guardar…” si existe un borrador real.
+5. Actualiza de forma robusta el contador de avance tras cada guardado.
+
+Subir/reemplazar en GitHub:
+- ficha_runtime_v14_4_1.js  (nuevo)
+- Ficha_2_1.html
+- Ficha_2_2.html
+- Ficha_2_3.html
+- Ficha_2_4.html
+- Ficha_2_5.html
+- Ficha_2_6.html
+- Ficha_2_7.html
+- Ficha_2_8.html
+- Ficha_2_9.html
+- Ficha_2_10.html
+
+No tocar:
+- Apps Script v14.4.0
+- Google Sheets
+- Ficha_2_0.html
+- auth_v11.js
